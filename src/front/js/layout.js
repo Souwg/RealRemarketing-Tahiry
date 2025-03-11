@@ -11,7 +11,7 @@ import { ShowProperties } from "./pages/properties";
 import { EditProperties } from "./pages/editproperties";
 import { ExcelToCSVConverter } from "./pages/convert";
 import { Register } from "./pages/register";
-//import { Login } from "./pages/login";
+import { Login } from "./pages/login";
 import { User } from "./pages/user";
 
 import injectContext from "./store/appContext";
@@ -42,7 +42,7 @@ const Layout = () => {
               />
               <Route element={<EditProperties />} path="/editproperties" />
               <Route element={<ExcelToCSVConverter />} path="/convertcsv" />
-              {/*<Route element={<Login />} path="/login" />*/}
+              <Route element={<Login />} path="/login" />
               <Route element={<Register />} path="/register" />
               <Route element={<User />} path="/user" />
               <Route element={<h1>Not found!</h1>} />

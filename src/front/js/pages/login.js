@@ -1,8 +1,7 @@
-/*
-
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/login.css";
 
 export const Login = () => {
     const { actions } = useContext(Context);
@@ -13,8 +12,8 @@ export const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const success = await actions.loginUser(email, password);
-        if (success) {
+        const response = await actions.loginUser(email, password);
+        if (response.success) {
             navigate(response.is_admin ? "/admin" : "/user");
         } else {
             setError("Invalid email or password");
@@ -22,10 +21,10 @@ export const Login = () => {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
+        <div className="login-container">
+            <form onSubmit={handleSubmit} className="login-form">
+                <h2 className="login-title">Login</h2>
+                <div className="form-group">
                     <label>Email:</label>
                     <input
                         type="email"
@@ -34,7 +33,7 @@ export const Login = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <label>Password:</label>
                     <input
                         type="password"
@@ -43,11 +42,9 @@ export const Login = () => {
                         required
                     />
                 </div>
-                {error && <p style={{ color: "red" }}>{error}</p>}
-                <button type="submit">Login</button>
+                {error && <p className="error-message">{error}</p>}
+                <button type="submit" className="login-button">Login</button>
             </form>
         </div>
     );
 };
-
-*/

@@ -60,7 +60,7 @@ export const DemoThree = () => {
   const fetchParcelByNumber = async (parcelNumber) => {
     try {
       const response = await fetch(
-        `https://app.regrid.com/api/v2/parcels/apn?parcelnumb=${parcelNumber}&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyZWdyaWQuY29tIiwiaWF0IjoxNzM4MTI2MjgxLCJleHAiOjE3NDA3MTgyODEsInUiOjQ4ODkzNCwiZyI6MjMxNTMsImNhcCI6InBhOnRzOnBzOmJmOm1hOnR5OmVvOnpvOnNiIn0.XrC5wsvtWZGc_TxMnS4YNfy4uoj9gmWwcePhr6ixU_M`
+        `https://app.regrid.com/api/v2/parcels/apn?parcelnumb=${parcelNumber}&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyZWdyaWQuY29tIiwiaWF0IjoxNzQxMzU0MzAyLCJleHAiOjE3NDM5NDYzMDIsInUiOjUwMTk2OCwiZyI6MjMxNTMsImNhcCI6InBhOnRzOnBzOmJmOm1hOnR5OmVvOnpvOnNiIn0.ADYmXLd670ggabx0iNNFbuogPQNQr0gNCETPKp2DlIQ`
       );
       if (!response.ok)
         throw new Error(`Failed to fetch parcel: ${parcelNumber}`);
@@ -77,7 +77,7 @@ export const DemoThree = () => {
       const response = await fetch(
         `https://app.regrid.com/api/v2/parcels/address?query=${encodeURIComponent(
           address
-        )}&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyZWdyaWQuY29tIiwiaWF0IjoxNzM4MTI2MjgxLCJleHAiOjE3NDA3MTgyODEsInUiOjQ4ODkzNCwiZyI6MjMxNTMsImNhcCI6InBhOnRzOnBzOmJmOm1hOnR5OmVvOnpvOnNiIn0.XrC5wsvtWZGc_TxMnS4YNfy4uoj9gmWwcePhr6ixU_M`
+        )}&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyZWdyaWQuY29tIiwiaWF0IjoxNzQxMzU0MzAyLCJleHAiOjE3NDM5NDYzMDIsInUiOjUwMTk2OCwiZyI6MjMxNTMsImNhcCI6InBhOnRzOnBzOmJmOm1hOnR5OmVvOnpvOnNiIn0.ADYmXLd670ggabx0iNNFbuogPQNQr0gNCETPKp2DlIQ`
       );
       if (!response.ok)
         throw new Error(`Failed to fetch parcel by address: ${address}`);
@@ -92,7 +92,7 @@ export const DemoThree = () => {
   const fetchParcelByLatLon = async (latitude, longitude) => {
     try {
       const response = await fetch(
-        `https://app.regrid.com/api/v2/parcels/coordinates?lat=${latitude}&lon=${longitude}&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyZWdyaWQuY29tIiwiaWF0IjoxNzM4MTI2MjgxLCJleHAiOjE3NDA3MTgyODEsInUiOjQ4ODkzNCwiZyI6MjMxNTMsImNhcCI6InBhOnRzOnBzOmJmOm1hOnR5OmVvOnpvOnNiIn0.XrC5wsvtWZGc_TxMnS4YNfy4uoj9gmWwcePhr6ixU_M`
+        `https://app.regrid.com/api/v2/parcels/coordinates?lat=${latitude}&lon=${longitude}&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyZWdyaWQuY29tIiwiaWF0IjoxNzQxMzU0MzAyLCJleHAiOjE3NDM5NDYzMDIsInUiOjUwMTk2OCwiZyI6MjMxNTMsImNhcCI6InBhOnRzOnBzOmJmOm1hOnR5OmVvOnpvOnNiIn0.ADYmXLd670ggabx0iNNFbuogPQNQr0gNCETPKp2DlIQ`
       );
       if (!response.ok)
         throw new Error(

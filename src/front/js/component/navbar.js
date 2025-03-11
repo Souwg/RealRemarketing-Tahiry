@@ -1,43 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
-import "../../styles/sidebar.css"; // Importa los estilos del Sidebar
 import Paramour from "../../fonts/Paramour.ttf";
-import Sidebar from "./sidebar"; // Importa el componente Sidebar
 
 export const Navbar = () => {
-  // Estilo en línea que aplica la fuente
   const titleStyle = {
     fontFamily: "paramour, sans-serif",
     fontSize: "7rem",
+    textAlign: "center",
+    color: "#222",
   };
 
   return (
-    <>
-      <div className="row">
-        <div className="col-1">
-          <Sidebar />
-        </div>
-        <div className="col-11">
-          <nav className="navbar">
-            <style>
-              {`
-            @font-face {
-              font-family: 'paramour';
-              src: url(${Paramour}) format('truetype');
-            }
-          `}
-            </style>
-            <Link
-              className="navbar-brand title fw-bold"
-              style={{ color: "inherit" }}
-              to="/"
-            >
-              <h1 style={titleStyle}>RealRemarketing</h1>
-            </Link>
-          </nav>
+    <nav className="navbar-container">
+      <style>
+        {`
+          @font-face {
+            font-family: 'paramour';
+            src: url(${Paramour}) format('truetype');
+          }
+        `}
+      </style>
+      <div className="navbar-content">
+        <Link className="navbar-brand" to="/">
+          <h1 style={titleStyle}>RealRemarketing</h1>
+        </Link>
+        <div className="navbar-modern-menu">
+          <ul className="navbar-links">
+            {[  
+              { to: "/", icon: "home-outline", label: "Inicio" },
+              { to: "/convertcsv", icon: "reader-outline", label: "CSV" },
+              { to: "/demo3", icon: "business-outline", label: "Cargar Archivo" },
+              { to: "/editproperties", icon: "create-outline", label: "Editar Propiedades" },
+              { to: "/demo2", icon: "search-outline", label: "Buscar" },
+              { to: "/login", icon: "person-outline", label: "Login" },
+            ].map((item, index) => (
+              <li key={index} className="navbar-item">
+                <Link to={item.to} className="navbar-link">
+                  <ion-icon name={item.icon}></ion-icon>
+                  <span className="navbar-text">{item.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </>
+    </nav>
   );
 };

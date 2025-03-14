@@ -15,7 +15,7 @@ export const EditProperties = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/properties");
+        const response = await fetch("http://localhost:3002/api/properties");
         if (!response.ok) throw new Error("Failed to fetch properties");
         const data = await response.json();
         setProperties(data); // Actualiza el estado con las propiedades obtenidas
@@ -36,7 +36,7 @@ export const EditProperties = () => {
       // 1. Obtener los datos actualizados de la propiedad desde el servidor
       try {
         const response = await fetch(
-          `http://localhost:3001/api/property/${parcelNumber}`
+          `http://localhost:3002/api/property/${parcelNumber}`
         );
         if (!response.ok) throw new Error("Failed to fetch property details");
         const updatedProperty = await response.json();
@@ -69,7 +69,7 @@ export const EditProperties = () => {
     try {
       // 1. Enviar la solicitud al servidor para guardar el campo en la base de datos
       const response = await fetch(
-        `http://localhost:3001/api/add/property-field/${selectedProperty.parcel_number}`,
+        `http://localhost:3002/api/add/property-field/${selectedProperty.parcel_number}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -121,7 +121,7 @@ export const EditProperties = () => {
     try {
       // 1. Enviar la solicitud al servidor para eliminar el campo
       const response = await fetch(
-        `http://localhost:3001/api/delete/property-field/${
+        `http://localhost:3002/api/delete/property-field/${
           selectedProperty.parcel_number
         }/${encodeURIComponent(cleanField)}`,
         { method: "DELETE" }
@@ -177,7 +177,7 @@ export const EditProperties = () => {
 
       // 2. Enviar la solicitud al servidor para actualizar los campos
       const response = await fetch(
-        `http://localhost:3001/api/update/property/${selectedProperty.parcel_number}`,
+        `http://localhost:3002/api/update/property/${selectedProperty.parcel_number}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -198,7 +198,7 @@ export const EditProperties = () => {
   const handleDeleteProperty = async (parcelNumber) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/delete/property/${parcelNumber}`,
+        `http://localhost:3002/api/delete/property/${parcelNumber}`,
         { method: "DELETE" }
       );
       if (!response.ok) throw new Error("Failed to delete property");

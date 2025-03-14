@@ -22,7 +22,7 @@ export const ShowProperties = () => {
     const fetchProperties = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/api/properties?timestamp=${new Date().getTime()}`
+          `http://localhost:3002/api/properties?timestamp=${new Date().getTime()}`
         );
         if (!response.ok) {
           throw new Error(`Error: ${response.status} ${response.statusText}`);
